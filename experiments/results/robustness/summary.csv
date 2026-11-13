@@ -1,0 +1,19 @@
+case,args,success,dropped,timeout,time_s,hand_accel
+seed1,"--env_seed 1",98.60,0.00,1.40,5.183,0.983
+seed2,"--env_seed 2",99.20,0.00,0.80,5.128,0.954
+seed3,"--env_seed 3",98.70,0.10,1.20,5.076,0.955
+seed4,"--env_seed 4",98.70,0.00,1.30,5.178,0.979
+seed5,"--env_seed 5",98.60,0.00,1.40,5.130,0.973
+mass_light,"--env_seed 1 --mass_range 0.3,0.7",98.10,0.00,1.90,5.264,0.997
+mass_heavy,"--env_seed 1 --mass_range 1.5,3.0",97.50,0.00,2.50,5.360,1.047
+friction_0.5,"--env_seed 1 --friction_scale 0.5",97.90,0.10,2.00,5.051,0.973
+friction_0.7,"--env_seed 1 --friction_scale 0.7",98.30,0.00,1.70,5.092,0.969
+friction_1.5,"--env_seed 1 --friction_scale 1.5",99.50,0.00,0.50,5.246,0.998
+noise_1x,"--env_seed 1 --obs_noise",99.10,0.00,0.90,5.029,0.972
+noise_2x,"--env_seed 1 --obs_noise_scale 2",99.20,0.00,0.80,5.013,0.971
+noise_4x,"--env_seed 1 --obs_noise_scale 4",99.10,0.00,0.90,5.046,0.983
+urdf_raw,"--env_seed 1 --robot_urdf ../project_repo/hardware/mechanical/urdf/panda_arm_hand.urdf --urdf_raw",2.50,0.30,97.20,7.610,1.274
+urdf_matched,"--env_seed 1 --robot_urdf ../project_repo/hardware/mechanical/urdf/panda_arm_hand.urdf",71.90,0.10,28.00,6.802,1.372
+urdf_matched_fingervel,"--env_seed 1 --robot_urdf ../project_repo/hardware/mechanical/urdf/panda_arm_hand.urdf --urdf_finger_vel 0.2",89.90,0.00,10.10,6.564,1.229
+urdf_matched_inertia,"--env_seed 1 --robot_urdf ../project_repo/hardware/mechanical/urdf/panda_arm_hand.urdf --inertia_scale 1e-4",77.50,0.00,22.50,6.630,1.320
+urdf_matched_both,"--env_seed 1 --robot_urdf ../project_repo/hardware/mechanical/urdf/panda_arm_hand.urdf --urdf_finger_vel 0.2 --inertia_scale 1e-4",92.10,0.00,7.90,6.188,1.167
