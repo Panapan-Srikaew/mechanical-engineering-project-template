@@ -1,0 +1,8 @@
+Forward kinematics check: URDF chain (origin xyz/rpy + axis) vs modified DH table
+random joint configs inside the URDF limits : 2000
+max position difference of panda_hand      : 3.40e-12 m
+max rotation-matrix difference (Frobenius) : 6.35e-13
+
+home pose q = [0.0, -0.569, 0.0, -2.81, 0.0, 3.037, 0.741] rad
+panda_hand position at home : [0.3894, -0.0, 0.4578] m (robot base frame)
+TCP position at home        : [0.4633, -0.0, 0.3855] m
