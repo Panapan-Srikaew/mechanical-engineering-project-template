@@ -2,7 +2,6 @@
 
 A 7-DoF Franka Emika Panda arm learns, with PPO in NVIDIA Isaac Sim / Isaac Lab, to pick up a cube placed anywhere around it and place it on a random goal. The robot's mechanical model (URDF) is analysed in detail and linked to the learning results.
 
-> Special track **Isaac Sim (free for all)**: simulation only, no physical hardware. Folders that do not apply explain why.
 
 ## Project overview
 
