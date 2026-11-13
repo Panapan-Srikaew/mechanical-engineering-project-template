@@ -1,43 +1,41 @@
-# Mechanical Engineering Project Template
+# Franka Panda 360° Pick & Place with Reinforcement Learning in Isaac Sim
 
-A reusable starting point for projects in the Mechanical Engineering Department. Use this repository as a template to organize a project’s mechanical design, electronics, software, machine skills, simulation, documentation, experiments, and publications.
+A 7-DoF Franka Emika Panda arm learns, with PPO in NVIDIA Isaac Sim / Isaac Lab, to pick up a cube placed anywhere around it and place it on a random goal. The robot's mechanical model (URDF) is analysed in detail and linked to the learning results.
 
-## Getting started
-
-1. Select **Use this template** on GitHub to create a repository for your project.
-2. Rename the project in this README and update the project summary, team, and objectives.
-3. Review the folder READMEs and replace the examples with project-specific information.
-4. Create GitHub Issues for tasks and record important design decisions and test results.
-5. Check the license placeholder and select appropriate terms before sharing or reusing project work.
+> Special track **Isaac Sim (free for all)**: simulation only, no physical hardware. Folders that do not apply explain why.
 
 ## Project overview
 
-- **Project name:** [Enter project name]
-- **Problem / purpose:** [Describe the engineering need]
-- **Team:** [Names and responsibilities]
-- **Status:** Planning
-- **Last updated:** [YYYY-MM-DD]
+- **Project name:** Franka Panda 360° Pick & Place with PPO in Isaac Sim / Isaac Lab
+- **Problem / purpose:** teach a robot arm to pick up a cube placed at a random spot all around it (±160°, 0.40–0.70 m from the base), carry it to a random goal and place it within 1.5 cm, moving slowly and smoothly (hand ≤ 0.25 m/s)
+- **Team:**
+  - Panapan Srikaew (6730281821) – Isaac Sim setup and operation, running the simulation system
+  - Parithat Muenma (6730296221) – URDF analysis and robot model study
+  - Panyawat Wipassuchanan (6730303021) – system design, model training and reward tuning
+- **Advisor:** Assoc. Prof. Dr. Ratchatin Chancharoen
+- **Status:** Complete (simulation)
+- **Last updated:** 2026-11-13
 
 ## Repository structure
 
 | Path | Purpose |
 |---|---|
-| `hardware/mechanical/` | CAD models, drawings, and fabrication files |
-| `hardware/electronics/` | Schematics, PCB files, and wiring diagrams |
-| `hardware/bom.csv` | Bill of materials with quantities, units, and sourcing details |
-| `software/firmware/` | Microcontroller code and board setup |
-| `software/application/` | PC or Raspberry Pi application code |
-| `machine-skills/` | Machine commands, procedures, and skill instructions |
-| `simulation/` | Models, scripts, assumptions, and simulation results |
-| `docs/` | Assembly, setup, operation, and maintenance instructions |
-| `media/` | Images, GIFs, and links to demonstration videos |
-| `experiments/` | Procedures, raw data, and results |
-| `publications/` | Project-related journal and conference papers |
+| [`hardware/mechanical/`](hardware/mechanical/README.md) | Robot model (URDF): links, joints, DH table, forward kinematics, workspace, URDF vs. simulator |
+| [`hardware/electronics/`](hardware/electronics/README.md) | Not used (simulation only) |
+| [`hardware/bom.csv`](hardware/bom.csv) | Computing resources and software used |
+| [`software/firmware/`](software/firmware/README.md) | Not used (no microcontroller) |
+| [`software/application/`](software/application/README.md) | Isaac Lab task and the training / evaluation / analysis scripts |
+| [`machine-skills/`](machine-skills/README.md) | Trained pick & place policy (`.pt` / `.onnx`), inputs, outputs and limits |
+| [`simulation/`](simulation/README.md) | Scene, physics, observations, actions, reward, PPO settings |
+| [`docs/`](docs/README.md) | Installation and usage, report and slides |
+| [`media/`](media/README.md) | Images, GIFs and videos |
+| [`experiments/`](experiments/README.md) | Training runs, results and robustness tests |
+| [`publications/`](publications/README.md) | References |
 
 ## Collaboration and file practices
 
-Use descriptive filenames and commit messages. Record units, revisions, software versions, and assumptions. Keep editable source files where practical. Avoid committing credentials, private data, temporary files, or duplicate exports. Consider Git LFS for large CAD, simulation, and video files.
+Software versions: Isaac Sim 6.0.1, Isaac Lab 3.0, rsl-rl-lib 5.0.1, PyTorch 2.10 (see [`docs/`](docs/README.md)). Training logs and intermediate checkpoints stay on the training PC; the repository keeps the final model, the evaluation results and the plots.
 
 ## Safety and validation
 
-Document hazards, safeguards, and operating limits before testing hardware. Validate important calculations and simulation results against measurements where practical.
+Everything is simulated; nothing has been run on a real robot. The robot model was checked against the simulator (forward kinematics, joint limits, masses) in [`hardware/mechanical/`](hardware/mechanical/README.md). All results come from 1,000 test episodes (see [`experiments/`](experiments/README.md)).
